@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda para Múltiples Profesionales | Python · ConfiguroWeb</title>
+  <meta name="description" content="Reparte citas equitativamente entre profesionales y muestra la carga de cada uno.">
+  <meta property="og:title" content="Agenda para Múltiples Profesionales · Python">
+  <meta property="og:description" content="Reparte citas equitativamente entre profesionales y muestra la carga de cada uno.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="assets/style.css">
+  <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>👥 Agenda para Múltiples Profesionales</h1>
+      <p class="tagline">Distribuye citas entre varios profesionales</p>
+    </div>
+  </header>
+  <main class="container">
+    <div id="py-loader" class="loader" style="text-align:center;padding:2rem;color:#64748b;">
+      <div class="spinner"></div>
+      <p>Cargando Python (PyScript)…</p>
+    </div>
+    <section id="app" class="app-card hidden">
+      <div class="form-grid">
+        <div class="form-group">
+  <label for="citas">📅 Total de citas</label>
+  <input type="number" id="citas" min="0" step="0.01" placeholder="Ej: 40">
+  <small>Citas del día</small>
+</div>
+        <div class="form-group">
+  <label for="profesionales">👨‍⚕️ N° profesionales</label>
+  <input type="number" id="profesionales" min="0" step="0.01" placeholder="Ej: 4">
+  <small>Equipo disponible</small>
+</div>
+        <div class="form-group">
+  <label for="horas">⏰ Horas por profesional</label>
+  <input type="number" id="horas" min="0" step="0.01" placeholder="Ej: 6">
+  <small>Jornada de cada uno</small>
+</div>
+      </div>
+      <div class="actions">
+        <button py-click="calcular_handler" class="btn btn-primary">📊 Calcular</button>
+        <button py-click="guardar_datos" class="btn btn-secondary">💾 Guardar datos</button>
+      </div>
+      <div id="resultado" class="result-box hidden" role="status" aria-live="polite"></div>
+    </section>
+    <section class="info-section">
+      <h2>¿Qué es Agenda para Múltiples Profesionales?</h2>
+      <p>Divide las citas totales entre el número de profesionales.</p>
+      <p>App construida con <strong>Python real</strong> (PyScript) en tu navegador.
+         Tus datos se guardan localmente, nunca salen de tu equipo.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <p>Hecho con 🐍 Python + PyScript por
+        <a href="https://configuroweb.com" target="_blank" rel="noopener">ConfiguroWeb</a> · 2026</p>
+    </div>
+  </footer>
+  <script type="py" src="app.py" async></script>
+  <script>
+    window.addEventListener('py:ready', () => {
+      document.getElementById('py-loader').classList.add('hidden');
+      document.getElementById('app').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
